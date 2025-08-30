@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Profiles – Clickable Images</title>
+  <style>
+    body { font-family: system-ui, Arial, sans-serif; }
+    .gallery { display: flex; gap: 24px; align-items: center; }
+    .profile a { text-decoration: none; text-align: center; display: inline-block; }
+    .profile img {
+      width: auto;       /* specific width */
+      height: auto;      /* specific height */
+      object-fit: cover;      /* crops nicely if aspect ratio differs */
+      border-radius: 12px;    /* optional: rounded corners */
+    }
+    .caption { margin-top: 8px; color: #333; }
+  </style>
+</head>
+<body>
+  <h2>Click an image to visit the profile</h2>
+
+  <div class="gallery">
+    <!-- Your image → Your profile -->
+    <div class="profile">
+      <a href="https://github.com/tulasibikkina" target="_blank" rel="noopener noreferrer" title="Open My Profile">
+        <img src="HTML/image (1).png" alt="Hema Malinya" />
+      </a>
+      <div class="caption">You</div>
+    </div>
+
+    <!-- Friend's image → Friend's profile -->
+    <div class="profile">
+      <a href="https://github.com/Bhanumadhavi" target="_blank" rel="noopener noreferrer" title="Open Friend's Profile">
+        <img src="C:\FSD-1-main\FSD-1\HTML\myfriend.png" alt="Baby Madhavi" />
+      </a>
+      <div class="caption">Friend</div>
+    </div>
+  </div>
+</body>
+</html>
