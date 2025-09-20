@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -8,32 +8,115 @@
     .gallery { display: flex; gap: 24px; align-items: center; }
     .profile a { text-decoration: none; text-align: center; display: inline-block; }
     .profile img {
-      width: auto;       /* specific width */
-      height: auto;      /* specific height */
-      object-fit: cover;      /* crops nicely if aspect ratio differs */
-      border-radius: 12px;    /* optional: rounded corners */
+      width: auto;   
+      height: auto;      
+      object-fit: cover;      
+      border-radius: 12px;    
     }
     .caption { margin-top: 8px; color: #333; }
   </style>
 </head>
 <body>
-  <h2>Click an image to visit the profile</h2>
+  <h2>Click an image to visit their profiles</h2>
 
   <div class="gallery">
-    <!-- Your image → Your profile -->
     <div class="profile">
       <a href="https://github.com/tulasibikkina" target="_blank" rel="noopener noreferrer" title="Open My Profile">
-        <img src="HTML/image (1).png" alt="Hema Malinya" />
+        <img src="me.png" alt="Hema Malinya" />
       </a>
-      <div class="caption">You</div>
+      <div class="caption">Hema Malinya</div>
     </div>
 
-    <!-- Friend's image → Friend's profile -->
     <div class="profile">
       <a href="https://github.com/Bhanumadhavi" target="_blank" rel="noopener noreferrer" title="Open Friend's Profile">
-        <img src="C:\FSD-1-main\FSD-1\HTML\myfriend.png" alt="Baby Madhavi" />
+        <img src="madhavi.png" alt="Baby Madhavi" />
       </a>
-      <div class="caption">Friend</div>
+      <div class="caption">Baby Madhavi</div>
+    </div>
+    <div class="profile">
+      <a href="https://github.com/Pushpalatha78" target="_blank" rel="noopener noreferrer" title="Open Friend's Profile">
+        <img src="pushpa.png" alt="PushpaLatha" />
+      </a>
+      <div class="caption">Pushpa</div>
+    </div><div class="profile">
+      <a href="https://github.com/Sirisha826" target="_blank" rel="noopener noreferrer" title="Open Friend's Profile">
+        <img src="siri.png" alt="Sirisha" />
+      </a>
+      <div class="caption">Sirisha</div>
+    </div>
+  </div>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Profiles – Clickable Images</title>
+  <style>
+    body { 
+      font-family: system-ui, Arial, sans-serif; 
+      text-align: center;
+    }
+    .gallery { 
+      display: flex; 
+      flex-wrap: wrap; /* allows moving to next line */
+      gap: 24px; 
+      justify-content: center; /* centers all profiles */
+    }
+    .profile { 
+      text-align: center; 
+      width: 150px; /* fixed width for uniform layout */
+    }
+    .profile a { 
+      text-decoration: none; 
+      display: block; 
+    }
+    .profile img {
+      width: 150px;    /* fixed size */
+      height: 150px;   
+      object-fit: cover;      
+      border-radius: 12px;    
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* optional for neat look */
+    }
+    .caption { 
+      margin-top: 8px; 
+      color: #333; 
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <h2>Click an image to visit their profiles</h2>
+
+  <div class="gallery">
+    <div class="profile">
+      <a href="https://github.com/tulasibikkina" target="_blank" rel="noopener noreferrer">
+        <img src="me.png" alt="My Photo" />
+      </a>
+      <div class="caption">Hema Malinya</div>
+    </div>
+
+    <div class="profile">
+      <a href="https://github.com/Bhanumadhavi" target="_blank" rel="noopener noreferrer">
+        <img src="madhavi.png" alt="Madhavi Photo" />
+      </a>
+      <div class="caption">Baby Madhavi</div>
+    </div>
+
+    <div class="profile">
+      <a href="https://github.com/Pushpalatha78" target="_blank" rel="noopener noreferrer">
+        <img src="pushpa.png" alt="Pushpa Photo" />
+      </a>
+      <div class="caption">Pushpa</div>
+    </div>
+
+    <div class="profile">
+      <a href="https://github.com/Sirisha826" target="_blank" rel="noopener noreferrer">
+        <img src="siri.png" alt="Sirisha Photo" />
+      </a>
+      <div class="caption">Sirisha</div>
     </div>
   </div>
 </body>
