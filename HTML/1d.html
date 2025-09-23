@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Thumbnail Image Gallery</title>
+  <style>
+    :root{--gap:12px}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;margin:24px;background:#f7f7f7;color:#222}
+    h1{margin-bottom:8px}
+
+    /* Grid gallery */
+    .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:var(--gap);max-width:1100px}
+    .item{background:#fff;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,.08);overflow:hidden;text-align:center;padding:8px}
+    .thumb{display:inline-block;border-radius:6px;cursor:pointer;display:block}
+    .thumb img{width:100px;height:100px;object-fit:cover;border-radius:6px;display:block}
+    .caption{font-size:13px;padding-top:6px;color:#555}
+
+    /* Modal / lightbox */
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.7);z-index:50}
+    .modal.active{display:flex}
+    .modal-content{max-width:95%;max-height:95%;border-radius:6px;box-shadow:0 8px 30px rgba(0,0,0,.6);background:#000;padding:8px}
+    .modal-content img{
+      display:block;
+      max-width:90vw;   /* fit within viewport width */
+      max-height:80vh;  /* fit within viewport height */
+      width:auto;
+      height:auto;
+      object-fit:contain;
+      border-radius:4px;
+    }
+    .close-btn{position:absolute;top:18px;right:18px;background:transparent;border:0;color:#fff;font-size:28px;cursor:pointer}
+    .note{margin-top:10px;font-size:14px;color:#666}
+
+    @media (max-width:480px){.thumb img{width:80px;height:80px}}
+  </style>
+</head>
+<body>
+  <h1>Thumbnail Image Gallery</h1>
+  <p class="note">Click any thumbnail to view the full-size image. Thumbnails are 100×100 pixels.</p>
+
+  <div class="gallery" id="gallery">
+    <div class="item">
+      <a class="thumb" href="mountainview.jpeg" data-caption="Mountain View">
+        <img src="mountainview.jpeg" alt="Mountain View" width="100" height="100">
+      </a>
+      <div class="caption">Mountain View</div>
+    </div>
+
+    <div class="item">
+      <a class="thumb" href="citylights.jpeg" data-caption="City Lights">
+        <img src="citylights.jpeg" alt="City Lights" width="100" height="100">
+      </a>
+      <div class="caption">City Lights</div>
+    </div>
+
+    <div class="item">
+      <a class="thumb" href="forestpath.jpeg" data-caption="Forest Path">
+        <img src="forestpath.jpeg" alt="Forest Path" width="100" height="100">
+      </a>
+      <div class="caption">Forest Path</div>
+    </div>
+
+    <div class="item">
+      <a class="thumb" href="seashore.jpeg" data-caption="Sea Shore">
+        <img src="seashore.jpeg" alt="Sea Shore" width="100" height="100">
+      </a>
+      <div class="caption">Sea Shore</div>
+    </div>
+  </div>
+
+  <!-- Modal / Lightbox -->
+  <div class="modal" id="modal" role="dialog" aria-hidden="true">
+    <button class="close-btn" id="closeBtn" aria-label="Close">×</button>
+    <div class="modal-content" id="modalContent">
+      <img id="modalImage" src="" alt="Full size">
+      <div id="modalCaption" style="color:#fff;padding-top:8px;text-align:center"></div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('gallery').addEventListener('click', function(e){
+      const a = e.target.closest('a.thumb');
+      if(!a) return;
+      e.preventDefault();
+      const url = a.getAttribute('href');
+      const caption = a.dataset.caption || '';
+      openModal(url, caption);
+    });
+
+    const modal = document.getElementById('modal');
+    const modalImage = document.getElementById('modalImage');
+    const modalCaption = document.getElementById('modalCaption');
+    const closeBtn = document.getElementById('closeBtn');
+
+    function openModal(url, caption){
+      modalImage.src = url;
+      modalImage.alt = caption;
+      modalCaption.textContent = caption;
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden','false');
+    }
+
+    function closeModal(){
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden','true');
+      setTimeout(()=> modalImage.src = '', 300);
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', function(e){
+      if(e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeModal(); });
+  </script>
+</body>
+</html>
