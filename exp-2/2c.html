@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa;
+            margin: 0;
+            padding: 0;
+        }
+        h2 {
+            text-align: center;
+            margin-top: 30px;
+            color: #00796b;
+        }
+        form {
+            width: 600px;
+            margin: 30px auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        td {
+            padding: 12px;
+            vertical-align: top;
+        }
+        input[type="text"], input[type="email"], input[type="password"], 
+        input[type="number"], input[type="date"], select, textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        input[type="radio"], input[type="checkbox"] {
+            transform: scale(1.2);
+            margin-right: 5px;
+        }
+        textarea {
+            resize: none;
+        }
+        .buttons {
+            text-align: center;
+            padding-top: 15px;
+        }
+        input[type="submit"], input[type="reset"] {
+            width: 120px;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        input[type="submit"] {
+            background-color: #00796b;
+            color: white;
+        }
+        input[type="reset"] {
+            background-color: #cfd8dc;
+        }
+        input[type="submit"]:hover {
+            background-color: #004d40;
+        }
+        input[type="reset"]:hover {
+            background-color: #b0bec5;
+        }
+        .success-message {
+            text-align: center;
+            color: green;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Registration Form</h2>
+
+    <form id="regForm">
+        <table>
+            <tr>
+                <td>Full Name:</td>
+                <td><input type="text" name="fullname" placeholder="Enter your full name" required></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input type="email" name="email" placeholder="Enter your email" required></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type="password" name="password" placeholder="Enter your password" required></td>
+            </tr>
+            <tr>
+                <td>Contact Number:</td>
+                <td><input type="number" name="contact" placeholder="Enter your contact number" required></td>
+            </tr>
+            <tr>
+                <td>Date of Birth:</td>
+                <td><input type="date" name="dob" required></td>
+            </tr>
+            <tr>
+                <td>Gender:</td>
+                <td>
+                    <input type="radio" name="gender" value="Male" required> Male
+                    <input type="radio" name="gender" value="Female"> Female
+                    <input type="radio" name="gender" value="Other"> Other
+                </td>
+            </tr>
+            <tr>
+                <td>Hobbies:</td>
+                <td>
+                    <input type="checkbox" name="hobbies" value="Reading"> Reading
+                    <input type="checkbox" name="hobbies" value="Traveling"> Traveling
+                    <input type="checkbox" name="hobbies" value="Sports"> Sports
+                    <input type="checkbox" name="hobbies" value="Music"> Music
+                </td>
+            </tr>
+            <tr>
+                <td>Country:</td>
+                <td>
+                    <select name="country" required>
+                        <option value="">Select Country</option>
+                        <option value="India">India</option>
+                        <option value="USA">USA</option>
+                        <option value="UK">UK</option>
+                        <option value="Australia">Australia</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>State:</td>
+                <td>
+                    <select name="state" required>
+                        <option value="">Select State</option>
+                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                        <option value="Telangana">Telangana</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Address:</td>
+                <td><textarea name="address" rows="4" placeholder="Enter your address"></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="buttons">
+                    <input type="submit" value="Submit">
+                    <input type="reset" value="Reset">
+                </td>
+            </tr>
+        </table>
+        <div class="success-message" id="successMessage"></div>
+    </form>
+
+    <script>
+        document.getElementById("regForm").addEventListener("submit", function(e){
+            e.preventDefault(); // Prevent actual form submission
+            document.getElementById("successMessage").innerText = "Registration Successful!";
+            this.reset(); // Optional: clear the form
+        });
+    </script>
+</body>
+</html>
