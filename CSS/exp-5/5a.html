@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Color References</title>
+  <style>
+    /* 1. Named color */
+    .named { color: red; }
+
+    /* 2. Hexadecimal */
+    .hex { color: #00ff00; }   /* green */
+
+    /* 3. RGB */
+    .rgb { color: rgb(0, 0, 255); }  /* blue */
+
+    /* 4. RGBA (with alpha transparency) */
+    .rgba { color: rgba(255, 0, 0, 0.5); }  /* semi-transparent red */
+
+    /* 5. HSL */
+    .hsl { color: hsl(200, 100%, 50%); }  /* bright blue */
+
+    /* 6. HSLA (with alpha) */
+    .hsla { color: hsla(120, 100%, 25%, 0.6); }  /* semi-transparent dark green */
+
+    /* 7. Currentcolor keyword */
+    .currentcolor { 
+      color: purple;
+      border: 2px solid currentColor;
+    }
+
+    /* 8. Transparent keyword */
+    .transparent {
+      background-color: transparent;
+      border: 1px dashed black;
+    }
+  </style>
+</head>
+<body>
+  <h2>CSS Color Reference Demonstration</h2>
+  <p class="named">This uses a named color (red).</p>
+  <p class="hex">This uses a hex color (#00ff00 → green).</p>
+  <p class="rgb">This uses an RGB color (rgb(0,0,255) → blue).</p>
+  <p class="rgba">This uses an RGBA color (semi-transparent red).</p>
+  <p class="hsl">This uses an HSL color (hsl(200,100%,50%) → blue).</p>
+  <p class="hsla">This uses an HSLA color (semi-transparent dark green).</p>
+  <p class="currentcolor">This uses currentColor (purple text and border).</p>
+  <p class="transparent">This has a transparent background.</p>
+</body>
+</html>

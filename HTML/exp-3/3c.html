@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>CSS Style Levels Demo</title>
+
+  <!-- External stylesheet link -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Internal stylesheet -->
+  <style>
+    /* selector: h2, property: color, value: green */
+    h2 { color: green; font-family: Arial, sans-serif; }
+
+    /* selector: .internal-class, property: background-color, value: lightyellow */
+    .internal-class {
+      background-color: lightyellow;
+      padding: 8px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="color: blue; text-align: center;">Inline Style Example (selector: h1, property: color, value: blue)</h1>
+
+  <h2>Internal Style Example</h2>
+  <p class="internal-class">This paragraph is styled with internal CSS. (selector: .internal-class, property: background-color, value: lightyellow)</p>
+
+  <h3>External Style Example</h3>
+  <p class="external-class">This paragraph will be styled using external CSS. (selector: .external-class, property: color, value: purple)</p>
+</body>
+</html>

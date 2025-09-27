@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Semantic HTML Example</title>
+  <style>
+    :root{font-family: system-ui,Segoe UI,Roboto,Helvetica,Arial;line-height:1.45}
+    body{margin:0;background:#f6f8fb;color:#102a43}
+    header, footer{background:#0b5fff;color:white;padding:1rem}
+    nav{display:flex;gap:.75rem}
+    nav a{color:rgba(255,255,255,.95);text-decoration:none;padding:.35rem .6rem;border-radius:6px}
+    nav a:hover{background:rgba(255,255,255,.08)}
+    main{display:grid;grid-template-columns:1fr 320px;gap:1.25rem;padding:1.25rem}
+    article{background:white;padding:1rem;border-radius:10px;box-shadow:0 6px 18px rgba(16,42,67,.06)}
+    aside{background:#fff7; padding:1rem;border-radius:10px}
+    figure{margin:0}
+    figcaption{font-size:.9rem;color:#415a77}
+    .hero{padding:1rem 1rem 0}
+    .meta{font-size:.85rem;color:#627d98}
+    .card{background:white;padding:.8rem;border-radius:8px;margin-bottom:.8rem}
+    footer p{margin:0;font-size:.9rem}
+    .tags span{display:inline-block;background:#eef6ff;color:#0b5fff;padding:.2rem .45rem;border-radius:6px;margin-right:.4rem;font-size:.85rem}
+  </style>
+</head>
+<body>
+  <header>
+    <div style="display:flex;align-items:center;justify-content:space-between">
+      <div>
+        <h1 style="margin:.15rem 0">Learning Semantic HTML</h1>
+        <p class="meta" style="margin:0">A short demo using modern HTML5 structural elements</p>
+      </div>
+      <nav aria-label="primary navigation">
+        <a href="#home">Home</a>
+        <a href="#articles">Articles</a>
+        <a href="#resources">Resources</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section aria-labelledby="latest">
+      <article aria-labelledby="post-1">
+        <header class="hero">
+          <h2 id="post-1">Why semantic tags matter</h2>
+          <p class="meta">By <span class="author">Alex</span> • <time datetime="2025-09-27">Sep 27, 2025</time></p>
+        </header>
+
+        <figure>
+          <img src="https://via.placeholder.com/800x300?text=Semantic+HTML" alt="Illustration: semantic HTML" style="width:100%;height:auto;border-radius:8px">
+          <figcaption>Fig.1 — Example layout using semantic elements.</figcaption>
+        </figure>
+
+        <section>
+          <h3>Overview</h3>
+          <p>Semantic elements describe their meaning both to the browser and the developer. This helps with accessibility, SEO, and maintainability.</p>
+        </section>
+
+        <section>
+          <h3>Quick examples</h3>
+          <div class="card">
+            <p><strong>&lt;header&gt;</strong> — page or section heading.</p>
+          </div>
+          <div class="card">
+            <p><strong>&lt;nav&gt;</strong> — navigation links.</p>
+          </div>
+          <div class="card">
+            <p><strong>&lt;main&gt;</strong> — main content area; only one per page.</p>
+          </div>
+
+          <p>Inline grouping can use <span> &lt;span&gt; </span> for styling or script hooks. Blocks use <div> for generic containers when semantics are not required.</p>
+        </section>
+
+        <footer style="margin-top:1rem">
+          <p>Tags: <span class="tags"><span>HTML5</span><span>Accessibility</span><span>Semantics</span></span></p>
+        </footer>
+      </article>
+
+      <article aria-labelledby="post-2" style="margin-top:1rem">
+        <header>
+          <h2 id="post-2">Using &lt;aside&gt; and &lt;figure&gt; properly</h2>
+        </header>
+        <p>Asides contain tangentially related content. They can appear inside or outside an article.</p>
+      </article>
+
+    </section>
+
+    <aside aria-label="sidebar">
+      <div class="card">
+        <h4>About this demo</h4>
+        <p>This sidebar is an <strong>&lt;aside&gt;</strong> containing supplemental info.</p>
+      </div>
+      <div class="card">
+        <h4>Related</h4>
+        <ul>
+          <li><a href="#">HTML semantics checklist</a></li>
+          <li><a href="#">Accessibility basics</a></li>
+          <li><a href="#">SEO tips</a></li>
+        </ul>
+      </div>
+    </aside>
+  </main>
+
+  <footer>
+    <p>&copy; <time datetime="2025">2025</time> — Semantic HTML demo. Built with <span>pure HTML</span> and a little CSS.</p>
+  </footer>
+</body>
+</html>

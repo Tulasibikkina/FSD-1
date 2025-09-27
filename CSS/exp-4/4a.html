@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Selectors Example</title>
+  <style>
+    /* i. Simple selectors */
+    p { color: blue; }                     /* element selector */
+    #special { color: red; font-weight: bold; }  /* id selector */
+    .highlight { background-color: yellow; }     /* class selector */
+    h1, h2 { text-decoration: underline; }       /* group selector */
+    * { font-family: Arial, sans-serif; }        /* universal selector */
+
+    /* ii. Combinator selectors */
+    div p { font-size: 14px; }           /* descendant selector */
+    div > p { border: 1px solid green; } /* child selector */
+    h3 + p { color: orange; }            /* adjacent sibling selector */
+    h3 ~ p { font-style: italic; }       /* general sibling selector */
+
+    /* iii. Pseudo-class selectors */
+    a:hover { color: purple; }           /* hover */
+    input:focus { border: 2px solid red; }
+    li:first-child { color: brown; }
+    li:last-child { color: green; }
+    li:nth-child(2) { color: blue; }
+
+    /* iv. Pseudo-element selectors */
+    p::first-letter { font-size: 24px; color: crimson; }
+    p::first-line { font-weight: bold; }
+    ::selection { background: lightblue; }
+
+    /* v. Attribute selectors */
+    a[target] { color: teal; }
+    a[href^="https"] { text-decoration: none; }
+    a[href$=".com"] { font-weight: bold; }
+    input[type="text"] { background-color: #f0f0f0; }
+  </style>
+</head>
+<body>
+  <h1>CSS Selector Demonstration</h1>
+  <h2 id="special">This is an H2 with ID</h2>
+
+  <p class="highlight">This paragraph has a class "highlight".</p>
+
+  <div>
+    <p>Child paragraph inside div</p>
+    <section>
+      <p>Descendant paragraph inside div → section</p>
+    </section>
+  </div>
+
+  <h3>Heading H3</h3>
+  <p>Adjacent sibling paragraph (after h3)</p>
+  <p>General sibling paragraph (also after h3)</p>
+
+  <ul>
+    <li>First Item</li>
+    <li>Second Item</li>
+    <li>Last Item</li>
+  </ul>
+
+  <a href="https://example.com" target="_blank">Example Link</a><br>
+  <a href="http://mysite.org">Another Link</a><br>
+
+  <form>
+    <input type="text" placeholder="Enter text here">
+    <input type="password" placeholder="Enter password">
+  </form>
+</body>
+</html>

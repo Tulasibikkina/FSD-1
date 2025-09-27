@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JavaScript Input Demo</title>
+</head>
+<body>
+  <h1>Different Ways to Take Input in JavaScript</h1>
+  <p id="input-display"></p>
+
+  <script>
+    // 1. Using prompt()
+    let userName = prompt('Enter your name:');
+
+    // 2. Using confirm()
+    let likesJS = confirm('Do you like JavaScript? Click OK for Yes or Cancel for No');
+
+    // 3. Using input from form elements (example)
+    document.write('<form id="sampleForm">');
+    document.write('Enter your age: <input type="number" id="ageInput"><button type="button" onclick="displayFormInput()">Submit</button>');
+    document.write('</form>');
+
+    // Display prompt and confirm inputs
+    document.getElementById('input-display').innerHTML = 'Hello ' + userName + '. Do you like JS? ' + likesJS;
+
+    // Function for form input
+    function displayFormInput() {
+      let age = document.getElementById('ageInput').value;
+      alert('You entered age: ' + age);
+    }
+  </script>
+</body>
+</html>

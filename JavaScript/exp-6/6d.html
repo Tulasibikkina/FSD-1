@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Voter Eligibility Check</title>
+  <style>
+    table { border-collapse: collapse; width: 50%; margin-top: 1rem; }
+    th, td { border: 1px solid #0b5fff; padding: 8px; text-align: center; }
+    th { background-color: #0b5fff; color: white; }
+  </style>
+</head>
+<body>
+  <h1>Voter Eligibility Check</h1>
+
+  <script>
+    // Prompt user for name and age
+    let voterName = prompt('Enter your name:');
+    let voterAge = prompt('Enter your age:');
+
+    // Determine voting eligibility
+    let canVote = (parseInt(voterAge) >= 18) ? 'Yes' : 'No';
+
+    // Display in table format
+    document.write('<table>');
+    document.write('<tr><th>Name</th><th>Age</th><th>Can Vote?</th></tr>');
+    document.write('<tr><td>' + voterName + '</td><td>' + voterAge + '</td><td>' + canVote + '</td></tr>');
+    document.write('</table>');
+  </script>
+</body>
+</html>

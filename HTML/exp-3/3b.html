@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Audio and Video Embed Example</title>
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;background:#f9fafc;color:#222;margin:0;padding:2rem;line-height:1.5}
+    h1{color:#0b5fff}
+    section{margin-bottom:2rem}
+    video,audio{display:block;margin-top:1rem;max-width:100%}
+    .card{background:white;padding:1rem;border-radius:8px;box-shadow:0 4px 10px rgba(0,0,0,.08)}
+  </style>
+</head>
+<body>
+  <h1>Embedding Audio and Video</h1>
+
+  <section class="card">
+    <h2>Audio Example</h2>
+    <p>This is an embedded audio player using the <code>&lt;audio&gt;</code> tag:</p>
+    <audio controls>
+      <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+      <source src="https://file-examples.com/storage/fe74e1a95e6e9eae7a0c79f/2017/11/file_example_OOG_1MG.ogg" type="audio/ogg">
+      Your browser does not support the audio element.
+    </audio>
+  </section>
+
+  <section class="card">
+    <h2>Video Example</h2>
+    <p>This is an embedded video player using the <code>&lt;video&gt;</code> tag:</p>
+    <video controls width="600" poster="https://via.placeholder.com/600x300?text=Video+Preview">
+      <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+      <source src="https://samplelib.com/lib/preview/ogg/sample-5s.ogg" type="video/ogg">
+      Your browser does not support the video element.
+    </video>
+  </section>
+
+</body>
+</html>

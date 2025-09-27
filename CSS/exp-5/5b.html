@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Background Image CSS Example</title>
+  <style>
+    body {
+      height: 200vh; /* Make page scrollable to see effect */
+      margin: 0;
+      font-family: Arial, sans-serif;
+
+      /* Background image settings */
+      background-image: url('https://i0.wp.com/picjumbo.com/wp-content/uploads/beautiful-fall-nature-scenery-free-image.jpeg?w=600&quality=80'); /* Example ant image */
+      background-position: center 50%; /* halfway down the page */
+      background-attachment: fixed; /* image stays fixed during scroll */
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      /* Tilt horizontally using transform */
+      transform: rotateX(0deg) rotateY(15deg);
+    }
+    
+    h1 {
+      text-align: center;
+      margin-top: 50vh;
+      color: white;
+      text-shadow: 1px 1px 4px black;
+    }
+    p {
+      text-align: center;
+      color: white;
+      text-shadow: 1px 1px 4px black;
+    }
+  </style>
+</head>
+<body>
+  <h1>Background Image Example</h1>
+  <p>Scroll to see the background remain fixed.</p>
+</body>
+</html>

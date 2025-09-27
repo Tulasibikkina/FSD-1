@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JavaScript Embed Demo</title>
+
+  <!-- External JavaScript file -->
+  <script src="script.js" defer></script>
+
+  <!-- Internal JavaScript -->
+  <script>
+    function internalGreeting() {
+      alert('Hello from Internal JavaScript!');
+    }
+  </script>
+</head>
+<body>
+  <h1>JavaScript Embedding Example</h1>
+
+  <button onclick="internalGreeting()">Internal JS Alert</button>
+  <button onclick="externalGreeting()">External JS Alert</button>
+
+</body>
+</html>

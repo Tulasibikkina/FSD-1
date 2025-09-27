@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JavaScript Display Output</title>
+</head>
+<body>
+  <h1>Different Ways to Display Output in JavaScript</h1>
+
+  <p id="innerHTML-output"></p>
+
+  <script>
+    // 1. Using alert()
+    alert('This is an alert message');
+
+    // 2. Using console.log()
+    console.log('This message is logged to the console');
+
+    // 3. Using document.write()
+    document.write('<p>This is output using document.write()</p>');
+
+    // 4. Using innerHTML
+    document.getElementById('innerHTML-output').innerHTML = 'This is output using innerHTML';
+  </script>
+</body>
+</html>
