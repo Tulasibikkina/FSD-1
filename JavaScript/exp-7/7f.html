@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Regex Object Example</title>
+</head>
+<body>
+  <h2>Regex Object Properties and Methods</h2>
+
+  <script>
+    // Create a regex pattern
+    let pattern = /hello/i;  // 'i' for case-insensitive
+    let text1 = "Hello, world!";
+    let text2 = "Hi there!";
+
+    // Regex methods
+
+    // 1. test() - checks if pattern exists in string (returns true/false)
+    document.write("<b>pattern.test(text1):</b> " + pattern.test(text1) + "<br>");
+    document.write("<b>pattern.test(text2):</b> " + pattern.test(text2) + "<br><br>");
+
+    // 2. exec() - returns match info (array) or null
+    document.write("<b>pattern.exec(text1):</b> " + pattern.exec(text1) + "<br>");
+    document.write("<b>pattern.exec(text2):</b> " + pattern.exec(text2) + "<br><br>");
+
+    // Regex properties
+    let regex = /world/g;  // 'g' for global search
+    document.write("<b>regex.source:</b> " + regex.source + "<br>");
+    document.write("<b>regex.flags:</b> " + regex.flags + "<br>");
+    document.write("<b>regex.global:</b> " + regex.global + "<br>");
+    document.write("<b>regex.ignoreCase:</b> " + regex.ignoreCase + "<br>");
+  </script>
+</body>
+</html>

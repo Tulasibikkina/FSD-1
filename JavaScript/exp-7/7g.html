@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Date Object Example</title>
+</head>
+<body>
+  <h2>Date Object Properties and Methods</h2>
+
+  <script>
+    // Create a new date object
+    let today = new Date();
+
+    // Date properties and methods
+    document.write("<b>Current Date and Time:</b> " + today + "<br>");
+    document.write("<b>Year:</b> " + today.getFullYear() + "<br>");
+    document.write("<b>Month (0-11):</b> " + today.getMonth() + "<br>");
+    document.write("<b>Date:</b> " + today.getDate() + "<br>");
+    document.write("<b>Day (0-Sunday to 6-Saturday):</b> " + today.getDay() + "<br>");
+    document.write("<b>Hours:</b> " + today.getHours() + "<br>");
+    document.write("<b>Minutes:</b> " + today.getMinutes() + "<br>");
+    document.write("<b>Seconds:</b> " + today.getSeconds() + "<br>");
+    document.write("<b>Milliseconds:</b> " + today.getMilliseconds() + "<br>");
+    document.write("<b>Time in milliseconds since Jan 1, 1970:</b> " + today.getTime() + "<br>");
+
+    // Setting a date
+    today.setFullYear(2025);
+    today.setMonth(9);  // October (0-based)
+    today.setDate(15);
+    document.write("<br><b>Updated Date:</b> " + today + "<br>");
+  </script>
+</body>
+</html>

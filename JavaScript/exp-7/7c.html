@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Array Object Example</title>
+</head>
+<body>
+  <h2>Array Object Properties and Methods</h2>
+
+  <script>
+    // Create a generic array
+    let fruits = ["Apple", "Banana", "Orange", "Mango", "Grapes"];
+
+    // Array property: length
+    document.write("<b>Number of Fruits:</b> " + fruits.length + "<br>");
+
+    // Array methods examples
+
+    // 1. push() - add an element at the end
+    fruits.push("Pineapple");
+    document.write("<b>After push():</b> " + fruits.join(", ") + "<br>");
+
+    // 2. pop() - remove last element
+    fruits.pop();
+    document.write("<b>After pop():</b> " + fruits.join(", ") + "<br>");
+
+    // 3. join() - join elements into a string
+    let fruitsString = fruits.join(" | ");
+    document.write("<b>Using join():</b> " + fruitsString + "<br>");
+
+    // 4. reverse() - reverse the array
+    fruits.reverse();
+    document.write("<b>After reverse():</b> " + fruits.join(", ") + "<br>");
+
+    // 5. sort() - sort the array
+    fruits.sort();
+    document.write("<b>After sort():</b> " + fruits.join(", ") + "<br>");
+  </script>
+</body>
+</html>

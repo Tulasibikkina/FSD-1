@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>String Object Example</title>
+</head>
+<body>
+  <h2>String Object Properties and Methods</h2>
+
+  <script>
+    // Create a string
+    let text = "Hello, JavaScript!";
+
+    // String property
+    document.write("<b>Length of the string:</b> " + text.length + "<br><br>");
+
+    // String methods
+
+    // 1. toUpperCase() - converts to uppercase
+    document.write("<b>toUpperCase():</b> " + text.toUpperCase() + "<br>");
+
+    // 2. toLowerCase() - converts to lowercase
+    document.write("<b>toLowerCase():</b> " + text.toLowerCase() + "<br>");
+
+    // 3. charAt() - character at a specific index
+    document.write("<b>charAt(7):</b> " + text.charAt(7) + "<br>");
+
+    // 4. indexOf() - position of a substring
+    document.write("<b>indexOf('JavaScript'):</b> " + text.indexOf("JavaScript") + "<br>");
+
+    // 5. slice() - extracts a part of string
+    document.write("<b>slice(7, 17):</b> " + text.slice(7, 17) + "<br>");
+
+    // 6. replace() - replaces a substring
+    document.write("<b>replace('JavaScript', 'HTML'):</b> " + text.replace("JavaScript", "HTML") + "<br>");
+
+    // 7. split() - splits string into an array
+    let words = text.split(" ");
+    document.write("<b>split(' '):</b> " + words.join(", ") + "<br>");
+  </script>
+</body>
+</html>

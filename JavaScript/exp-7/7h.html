@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>User-Defined Object Example</title>
+</head>
+<body>
+  <h2>User-Defined Object: Student</h2>
+
+  <script>
+    // Constructor function to create a Student object
+    function Student(name, age, grade) {
+      // Properties
+      this.name = name;
+      this.age = age;
+      this.grade = grade;
+
+      // Method to display student details
+      this.display = function() {
+        return "Name: " + this.name + "<br>" +
+               "Age: " + this.age + "<br>" +
+               "Grade: " + this.grade + "<br>";
+      };
+
+      // Accessor (getter) for grade
+      this.getGrade = function() {
+        return this.grade;
+      };
+
+      // Accessor (setter) for grade
+      this.setGrade = function(newGrade) {
+        this.grade = newGrade;
+      };
+    }
+
+    // Create student objects using the constructor
+    let student1 = new Student("Hema", 16, "A");
+    let student2 = new Student("Madhavi", 17, "B");
+
+    // Display student details
+    document.write("<b>Student 1:</b><br>" + student1.display() + "<br>");
+    document.write("<b>Student 2:</b><br>" + student2.display() + "<br>");
+
+    // Using accessor to update grade
+    student2.setGrade("B+");
+    document.write("<b>Student 2 Updated Grade:</b> " + student2.getGrade() + "<br>");
+  </script>
+</body>
+</html>
