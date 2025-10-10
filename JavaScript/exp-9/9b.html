@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Number Functions with Buttons</title>
+  <style>
+    body { font-family: Arial; padding: 20px; line-height: 1.6; }
+    input, button { margin: 6px; padding: 6px 10px; }
+    pre { background: #f3f3f3; padding: 10px; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <h2>Number Functions (Factorial, Fibonacci, Prime, Palindrome)</h2>
+
+  <label>Enter a number: </label>
+  <input type="number" id="num" min="0">
+  <br><br>
+
+  <button onclick="showFactorial()">Factorial</button>
+  <button onclick="showFibonacci()">Fibonacci</button>
+  <button onclick="showPrimes()">Prime</button>
+  <button onclick="showPalindrome()">Palindrome</button>
+
+  <pre id="output">—</pre>
+
+  <script>
+    const out = document.getElementById('output');
+
+    // Factorial function
+    function factorial(n) {
+      if(n === 0 || n === 1) return 1;
+      let fact = 1;
+      for(let i = 2; i <= n; i++) fact *= i;
+      return fact;
+    }
+
+    function showFactorial() {
+      const n = parseInt(document.getElementById('num').value);
+      if(isNaN(n) || n < 0) { out.textContent = "Enter a valid number."; return; }
+      out.textContent = `Factorial of ${n}: ${factorial(n)}`;
+    }
+
+    // Fibonacci series
+    function fibonacci(n) {
+      const fib = [0, 1];
+      for(let i = 2; i < n; i++) fib[i] = fib[i-1] + fib[i-2];
+      return fib.slice(0, n);
+    }
+
+    function showFibonacci() {
+      const n = parseInt(document.getElementById('num').value);
+      if(isNaN(n) || n <= 0) { out.textContent = "Enter a valid number."; return; }
+      out.textContent = `Fibonacci series (${n} terms):\n${fibonacci(n).join(', ')}`;
+    }
+
+    // Prime numbers up to n
+    function primes(n) {
+      const result = [];
+      for(let i = 2; i <= n; i++) {
+        let isPrime = true;
+        for(let j = 2; j <= Math.sqrt(i); j++) {
+          if(i % j === 0) { isPrime = false; break; }
+        }
+        if(isPrime) result.push(i);
+      }
+      return result;
+    }
+
+    function showPrimes() {
+      const n = parseInt(document.getElementById('num').value);
+      if(isNaN(n) || n < 2) { out.textContent = "Enter a number greater than 1."; return; }
+      out.textContent = `Prime numbers up to ${n}:\n${primes(n).join(', ')}`;
+    }
+
+    // Palindrome check
+    function isPalindrome(n) {
+      const str = n.toString();
+      return str === str.split('').reverse().join('');
+    }
+
+    function showPalindrome() {
+      const n = parseInt(document.getElementById('num').value);
+      if(isNaN(n) || n < 0) { out.textContent = "Enter a valid number."; return; }
+      out.textContent = `${n} is ${isPalindrome(n) ? '' : 'NOT '}a palindrome`;
+    }
+  </script>
+</body>
+</html>

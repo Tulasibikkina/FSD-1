@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Page</title>
+    <style>
+        .error { color: red; font-size: 14px; }
+        .success { color: green; font-size: 18px; font-weight: bold; }
+        body { font-family: Arial, sans-serif; margin: 50px; }
+        input { padding: 5px; margin: 5px 0; }
+        label { display: inline-block; width: 80px; }
+    </style>
+</head>
+<body>
+    <h2>Registration Form</h2>
+    <form id="regForm">
+        <!-- Name -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <span id="nameError" class="error"></span>
+        <br><br>
+
+        <!-- Mobile -->
+        <label for="mobile">Mobile:</label>
+        <input type="text" id="mobile" name="mobile" required>
+        <span id="mobileError" class="error"></span>
+        <br><br>
+
+        <!-- Email -->
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" required>
+        <span id="emailError" class="error"></span>
+        <br><br>
+
+        <input type="submit" value="Register">
+    </form>
+
+    <p id="successMsg" class="success"></p>
+
+    <script>
+        const form = document.getElementById('regForm');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent page reload
+
+            let valid = true;
+            const name = document.getElementById('name').value.trim();
+            const mobile = document.getElementById('mobile').value.trim();
+            const email = document.getElementById('email').value.trim();
+
+            // Name validation: starts with letter, at least 6 alphanumeric characters
+            const namePattern = /^[A-Za-z][A-Za-z0-9]{5,}$/;
+            if(!namePattern.test(name)) {
+                document.getElementById('nameError').textContent = 
+                    "Name must start with a letter and have at least 6 alphanumeric characters";
+                valid = false;
+            } else {
+                document.getElementById('nameError').textContent = "";
+            }
+
+            // Mobile validation: exactly 10 digits
+            const mobilePattern = /^[0-9]{10}$/;
+            if(!mobilePattern.test(mobile)) {
+                document.getElementById('mobileError').textContent = 
+                    "Mobile must be exactly 10 digits";
+                valid = false;
+            } else {
+                document.getElementById('mobileError').textContent = "";
+            }
+
+            // Email validation: standard format xxxxx@xxxx.xxx
+            const emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+            if(!emailPattern.test(email)) {
+                document.getElementById('emailError').textContent = 
+                    "Enter a valid email like xxxxx@xxxx.xxx";
+                valid = false;
+            } else {
+                document.getElementById('emailError').textContent = "";
+            }
+
+            // Show success message if all valid
+            if(valid) {
+                document.getElementById('successMsg').textContent = "Registration Successful!";
+            } else {
+                document.getElementById('successMsg').textContent = "";
+            }
+        });
+    </script>
+</body>
+</html>
