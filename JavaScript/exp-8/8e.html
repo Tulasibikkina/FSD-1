@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Armstrong Number Check</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    input, button { margin: 6px; padding: 6px 10px; }
+    pre { background: #f3f3f3; padding: 10px; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <h2>Check Armstrong Number</h2>
+
+  <label>Enter a number: </label>
+  <input type="number" id="num" />
+  <button onclick="checkArmstrong()">Check</button>
+
+  <pre id="output">—</pre>
+
+  <script>
+    function checkArmstrong() {
+      const num = parseInt(document.getElementById("num").value);
+      const digits = num.toString().split('');
+      const n = digits.length;
+      let sum = 0;
+
+      for (let digit of digits) {
+        sum += Math.pow(parseInt(digit), n);
+      }
+
+      const result = (sum === num) ? `${num} is an Armstrong number.` 
+                                   : `${num} is NOT an Armstrong number.`;
+
+      document.getElementById("output").textContent = result;
+    }
+  </script>
+</body>
+</html>

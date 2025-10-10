@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Print 1 to 10 — for / while / do-while (JS)</title>
+  <style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; padding: 20px; }
+    .box { margin-bottom: 16px; }
+    button { margin-right: 8px; padding: 6px 10px; }
+    pre { background:#f6f6f6; padding:10px; border-radius:6px; }
+  </style>
+</head>
+<body>
+  <h2>Print numbers 1 to 10 using for, while and do-while</h2>
+
+  <div class="box">
+    <button id="runFor">Run for loop</button>
+    <button id="runWhile">Run while loop</button>
+    <button id="runDoWhile">Run do-while loop</button>
+    <button id="runAll">Run all (in order)</button>
+  </div>
+
+  <div class="box">
+    <strong>Output:</strong>
+    <pre id="output">—</pre>
+  </div>
+
+  <script>
+    const out = document.getElementById('output');
+
+    function printFor() {
+      const res = [];
+      for (let i = 1; i <= 10; i++) {
+        res.push(i);
+      }
+      return "for:      " + res.join(' ');
+    }
+
+    function printWhile() {
+      const res = [];
+      let i = 1;
+      while (i <= 10) {
+        res.push(i);
+        i++;
+      }
+      return "while:    " + res.join(' ');
+    }
+
+    function printDoWhile() {
+      const res = [];
+      let i = 1;
+      do {
+        res.push(i);
+        i++;
+      } while (i <= 10);
+      return "do-while: " + res.join(' ');
+    }
+
+    document.getElementById('runFor').addEventListener('click', () => {
+      out.textContent = printFor();
+    });
+
+    document.getElementById('runWhile').addEventListener('click', () => {
+      out.textContent = printWhile();
+    });
+
+    document.getElementById('runDoWhile').addEventListener('click', () => {
+      out.textContent = printDoWhile();
+    });
+
+    document.getElementById('runAll').addEventListener('click', () => {
+      out.textContent = [printFor(), printWhile(), printDoWhile()].join('\n');
+    });
+
+    // optional: show all on load
+    out.textContent = [printFor(), printWhile(), printDoWhile()].join('\n');
+  </script>
+</body>
+</html>

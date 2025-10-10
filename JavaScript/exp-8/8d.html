@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Print Object Data — for-in, forEach, for-of</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    button { margin: 6px; padding: 6px 10px; }
+    pre { background: #f3f3f3; padding: 10px; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <h2>Display Object Data using for-in, forEach, and for-of Loops</h2>
+
+  <button onclick="showForIn()">Using for-in</button>
+  <button onclick="showForEach()">Using forEach</button>
+  <button onclick="showForOf()">Using for-of</button>
+  <button onclick="showAll()">Show All</button>
+
+  <pre id="output">—</pre>
+
+  <script>
+    // Sample object
+    const student = {
+      name: "Hema Malinya",
+      age: 20,
+      course: "Information Technology",
+      college: "SITE"
+    };
+
+    function showForIn() {
+      let text = "Using for-in loop:\n";
+      for (let key in student) {
+        text += `${key}: ${student[key]}\n`;
+      }
+      document.getElementById("output").textContent = text;
+    }
+
+    function showForEach() {
+      let text = "Using forEach loop:\n";
+      Object.entries(student).forEach(([key, value]) => {
+        text += `${key}: ${value}\n`;
+      });
+      document.getElementById("output").textContent = text;
+    }
+
+    function showForOf() {
+      let text = "Using for-of loop:\n";
+      for (let [key, value] of Object.entries(student)) {
+        text += `${key}: ${value}\n`;
+      }
+      document.getElementById("output").textContent = text;
+    }
+
+    function showAll() {
+      let all = "";
+      all += "Using for-in loop:\n";
+      for (let key in student) {
+        all += `${key}: ${student[key]}\n`;
+      }
+
+      all += "\nUsing forEach loop:\n";
+      Object.entries(student).forEach(([key, value]) => {
+        all += `${key}: ${value}\n`;
+      });
+
+      all += "\nUsing for-of loop:\n";
+      for (let [key, value] of Object.entries(student)) {
+        all += `${key}: ${value}\n`;
+      }
+
+      document.getElementById("output").textContent = all;
+    }
+
+    // Display all on load
+    showAll();
+  </script>
+</body>
+</html>
