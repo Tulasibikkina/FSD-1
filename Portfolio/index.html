@@ -1,227 +1,513 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-  <nav>
-    <div class="logo">MyPortfolio</div>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <header class="hero">
-    <h1>Hi, I'm Hema Malinya</h1>
-    <p>Aspiring Software Engineer | Problem Solver</p>
-    <a href="#contact" class="btn">Contact Me</a>
-  </header>
-
-  <section id="about">
-    <h2>About Me</h2>
-    <div class="card">
-      <p>
-        I am a student learning programming and building projects in C, Java, and web development. 
-        Passionate about solving problems, exploring new technologies, and creating innovative solutions.
-      </p>
-    </div>
-  </section>
-
-  <section id="skills">
-    <h2>Skills</h2>
-    <div class="card">
-      <ul>
-        <li>Programming: C, Java, Python</li>
-        <li>Web Development: HTML, CSS</li>
-        <li>Database: MySQL</li>
-        <li>Tools: GitHub, VS Code</li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="education">
-    <h2>Education</h2>
-
-    <div class="card">
-      <h3>B.Tech in Information Technology</h3>
-      <p>Sasi Institute of Technology and Engineering</p>
-      <p>2023 – 2027</p>
-    </div>
-
-    <div class="card">
-      <h3>Intermediate in MPC</h3>
-      <p>Sri Chaitanya Junior College</p>
-      <p>2021 – 2023</p>
-    </div>
-
-    <div class="card">
-      <h3>Schooling</h3>
-      <p>Sri Chaitanya Olympiad School</p>
-      <p>2020</p>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <div class="card">
-      <p>Email: <a href="mailto:tulasi.bikkina@sasi.ac.in">tulasi.bikkina@sasi.ac.in</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/bikkina-hemamalinyatulasidurga-5aa397336/" target="_blank">View My LinkedIn</a></p>
-      <p>GitHub: <a href="https://github.com/Tulasibikkina" target="_blank">Check My GitHub</a></p>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2025 Hema Malinya | Portfolio Website</p>
-  </footer>
-</body>
-</html> -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Hema Malinya — Portfolio</title>
+<meta name="description" content="Portfolio of Hema Malinya — Aspiring Software Engineer. Projects, skills, education, certificates and contact." />
+<style>
+  /* ---------- Root & Reset ---------- */
+  :root{
+    --bg1:#02243a;
+    --bg2:#03507a;
+    --accent:#1500ff;        /* primary accent (blue) */
+    --muted:#0b3b51;         /* main text color */
+    --card-opaque:0.95;
+    --glass-shadow: 0 14px 40px rgba(3,47,74,0.12);
+    --radius:12px;
+    --sidebar-w:220px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;color:var(--muted);
+    background:
+      radial-gradient(600px 300px at 10% 18%, rgba(0,170,255,0.04), transparent 10%),
+      linear-gradient(180deg,var(--bg1) 0%, var(--bg2) 45%, #80d0ff 100%);
+    -webkit-font-smoothing:antialiased;overflow:hidden}
+
+  /* ---------- App shell ---------- */
+  .wrap{height:100vh;display:flex;flex-direction:column;align-items:center;padding:18px 12px;gap:12px}
+  header.appbar{
+    width:100%;max-width:1100px;padding:12px 18px;border-radius:12px;background:rgba(255,255,255,0.94);
+    box-shadow:var(--glass-shadow);display:flex;align-items:center;justify-content:space-between;gap:12px;
+    margin-left: calc(var(--sidebar-w) + 36px);
+  }
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand h1{font-size:16px;margin:0;color:var(--muted)}
+  .brand p{font-size:12px;color:rgba(3,47,74,0.6);margin:0}
+
+  .btn-ghost{background:transparent;border:1px solid rgba(3,47,74,0.06);padding:8px 12px;border-radius:10px;text-decoration:none;color:var(--muted)}
+
+  /* ---------- Left sidebar (desktop) ---------- */
+  nav.sidebar{
+    position:fixed;
+    left:18px;
+    top:18px;
+    bottom:18px;
+    width:var(--sidebar-w);
+    padding:18px;
+    border-radius:12px;
+    background:rgba(255,255,255,0.96);
+    box-shadow:var(--glass-shadow);
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    z-index:1200;
+  }
+  nav.sidebar .brand-mini{display:flex;flex-direction:column;gap:2px}
+  nav.sidebar .brand-mini h1{font-size:16px;margin:0;color:var(--muted)}
+  nav.sidebar .brand-mini p{font-size:12px;margin:0;color:rgba(3,47,74,0.6)}
+  nav.sidebar a{
+    display:block;
+    padding:10px 12px;
+    border-radius:10px;
+    text-decoration:none;
+    color:var(--muted);
+    font-weight:700;
+    transition:all .14s;
+  }
+  nav.sidebar a:hover{background:rgba(3,86,133,0.06);transform:translateX(6px)}
+  nav.sidebar a.active{background:linear-gradient(90deg,var(--accent),#2bb0ff);color:white;box-shadow:0 10px 30px rgba(3,86,133,0.08)}
+
+  /* ---------- Main area (shifted right to leave space for sidebar) ---------- */
+  main.canvas{
+    flex:1;
+    width:calc(100% - (var(--sidebar-w) + 36px));
+    max-width:calc(1100px - var(--sidebar-w));
+    border-radius:14px;
+    overflow:hidden;
+    position:relative;
+    margin-left: calc(var(--sidebar-w) + 36px); /* space for sidebar */
+  }
+
+  section.page{position:absolute;inset:0;padding:36px;display:none;align-items:center;justify-content:center;overflow:auto}
+  section.page.active{display:flex}
+  .page-inner{width:100%;max-width:1100px;margin:auto} /* slightly wider to fit larger cards */
+
+  /* ---------- Glass card ---------- */
+  .glass{
+    background: rgba(255,255,255,var(--card-opaque));
+    border-radius:var(--radius);
+    padding:28px;
+    box-shadow:var(--glass-shadow);
+    text-align:left;
+  }
+
+  /* ---------- Card (used for personal-info and others) ----------
+     Increased width and removed forced max-height so it expands with content */
+  .card{
+    padding:18px;
+    border-radius:12px;
+    background: rgba(255,255,255,0.98);
+    border:1px solid rgba(3,47,74,0.04);
+    color:var(--muted);
+    width:100%;
+    max-width:920px;   /* allow cards to expand wider inside page */
+    box-shadow: 0 8px 24px rgba(3,47,74,0.06);
+    overflow:visible;  /* let content expand (no internal scroll) */
+  }
+
+  /* ---------- About / hero ---------- */
+  .hero{display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:start} /* slightly larger right column */
+  .hero .left h2{color:var(--accent);margin-bottom:8px}
+  .hero .left h1{font-size:24px;color:var(--muted);margin-bottom:10px}
+  .hero .left p{color:var(--muted);line-height:1.6}
+  .actions{margin-top:14px;display:flex;gap:12px;flex-wrap:wrap}
+  .btn-primary{background:linear-gradient(90deg,var(--accent),#2bb0ff);color:white;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
+
+  .profile-card{display:flex;flex-direction:column;align-items:center;gap:10px}
+  .avatar{width:220px;height:220px;border-radius:12px;overflow:hidden;border:6px solid rgba(255,255,255,0.9)}
+  .avatar img{width:100%;height:100%;object-fit:cover}
+  .pname{font-weight:800;color:var(--muted)}
+  .prole{font-size:13px;color:rgba(3,47,74,0.6)}
+
+  /* ---------- Skills (simple lists) ---------- */
+  .skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .skills-grid h3{margin-bottom:8px;color:var(--muted)}
+  .skills-grid ul{list-style:none;padding-left:0;line-height:1.8;color:var(--muted)}
+  .skills-grid li::before{content:"•";color:var(--accent);display:inline-block;width:1em;margin-left:-1em;margin-right:8px}
+
+  /* ---------- Projects ---------- */
+  .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .project{display:flex;flex-direction:column;gap:10px;border-radius:12px;overflow:hidden;border:1px solid rgba(3,47,74,0.04);background:rgba(255,255,255,0.96)}
+  .project .thumb{height:160px;background:#e6f7ff center/cover no-repeat}
+  .project .body{padding:12px}
+  .project h4{margin:0 0 8px 0;color:var(--muted);font-size:16px}
+  .project p{margin:0;color:var(--muted);font-size:14px}
+
+  /* ---------- Lists (education / certificates / achievements) ---------- */
+  .list{display:flex;flex-direction:column;gap:12px}
+  .list .item, .card{padding:12px;border-radius:10px;background:rgba(255,255,255,0.98);border:1px solid rgba(3,47,74,0.04);color:var(--muted)}
+
+  /* certificates list inside .list may contain anchors */
+  .list a.link-clean{color:var(--accent);text-decoration:none}
+  .list a.link-clean:hover{text-decoration:underline}
+
+  /* ---------- Personal info layout (expanded, no internal scroll) ---------- */
+  .personal-info{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:16px;
+    margin-top:-40px; /* moved up to sit closer to hero */
+    text-align:left;
+    align-items:start;
+  }
+  .personal-info h2{grid-column:1 / -1; margin:0 0 8px; color:var(--muted); font-size:18px}
+  .personal-info .card{max-width:none;overflow:visible;}
+
+  /* ---------- Contact links: keep same blue shade always ---------- */
+  #contact a:link,
+  #contact a:visited { color: #0077b5; text-decoration: none; }
+  #contact a:hover { color: #005f8d; text-decoration: underline; }
+  #contact a:active { color: #003f5e; }
+
+  /* ensure contact .card matches style */
+  .contact-card, #contact .card { display:block; background: rgba(255,255,255,0.98); padding:14px; border-radius:10px; border:1px solid rgba(3,47,74,0.04); color:var(--muted) }
+
+  /* ---------- Footer ---------- */
+  footer, .appfoot{width:100%;max-width:1100px;padding:10px;border-radius:12px;background:rgba(255,255,255,0.94);box-shadow:var(--glass-shadow);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--muted)}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:1100px){
+    /* slightly reduce avatar and hero columns */
+    .avatar{width:180px;height:180px}
+    .hero{grid-template-columns:1fr 300px}
+    .page-inner{max-width:960px}
+  }
+
+  @media (max-width:980px){
+    /* hide the left sidebar on small screens */
+    nav.sidebar{display:none}
+    header.appbar { margin-left: 0; max-width:1100px; }
+    main.canvas{ width:100%; max-width:1100px; margin-left:0 }
+    .hero{grid-template-columns:1fr;gap:12px}
+    .projects-grid{grid-template-columns:1fr}
+    .avatar{width:160px;height:160px}
+    .page-inner{padding:0 8px}
+  }
+
+  @media (max-width:560px){
+    header.appbar{padding:10px}
+    .personal-info{grid-template-columns:1fr}
+    .hero{grid-template-columns:1fr}
+  }
+</style>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav>
-    <div class="logo">MyPortfolio</div>
-    <ul id="nav-list">
-      <li><a href="#about" class="nav-link">About</a></li>
-      <li><a href="#skills" class="nav-link">Skills</a></li>
-      <li><a href="#education" class="nav-link">Education</a></li>
-      <li><a href="#achievements" class="nav-link">Achievements</a></li>
-      <li><a href="#certificates" class="nav-link">Certificates</a></li>
-      <li><a href="#contact" class="nav-link">Contact</a></li>
-    </ul>
-  </nav>
+  <div class="wrap">
 
-  <!-- Hero Section -->
-  <header class="hero">
-    <h1>Hi, I'm Hema Malinya</h1>
-    <p>Aspiring Software Engineer | Problem Solver</p>
-    <a href="#contact" class="btn">Contact Me</a>
-  </header>
+    <!-- Left sidebar (desktop). Contains the same nav links (same classes) -->
+    <nav class="sidebar" aria-label="Primary">
+      <div class="brand-mini">
+        <h1>Hema Malinya</h1>
+        <p>B.Tech (IT)</p>
+      </div>
 
-  <!-- About -->
-  <section id="about">
-    <h2>About Me</h2>
-    <div class="card">
-      <p>
-        I am an Information Technology student with a keen interest in programming, web development, and problem-solving. I am currently learning C and Java to build efficient and creative projects. I’m passionate about exploring emerging technologies, strengthening my coding skills, and developing innovative ideas that can make a real-world impact. My goal is to become a skilled software engineer and contribute to impactful software solutions.</p>
-  </section>
+      <a href="#about" class="nav-link active">About</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#education" class="nav-link">Education</a>
+      <a href="#personal-info" class="nav-link">Personal Info</a>
+      <a href="#achievements" class="nav-link">Achievements</a>
+      <a href="#hobbies" class="nav-link">Hobbies</a>
+      <a href="#certificates" class="nav-link">Certificates</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#contact" class="nav-link">Contact</a>
 
-  <!-- Skills -->
-  <section id="skills">
-    <h2>Skills</h2>
-    <div class="card">
-      <ul>
-        <li>Programming: C, Python,Java</li>
-        <li>Web Development: HTML, CSS</li>
-        <li>Database: MySQL</li>
-        <li>Tools: GitHub, VS Code</li>
-      </ul>
+      <a href="resume.png" class="btn-ghost" target="_blank" rel="noopener">Resume</a>
+    </nav>
+
+    <header class="appbar">
+      <div class="brand">
+        <!-- brand text unchanged -->
+        <div>
+          <h1>Hema Malinya</h1>
+          <p>B.Tech (IT) • Aspiring Software Engineer</p>
+        </div>
+      </div>
+      <!-- top nav removed as requested -->
+    </header>
+
+    <main class="canvas" role="main">
+      <!-- ABOUT / HOME -->
+      <section id="about" class="page active" aria-labelledby="about-title">
+        <div class="page-inner">
+          <div class="glass hero">
+            <div class="left">
+              <h2 id="about-title">Hello — I'm Hema Malinya</h2>
+              <p>I am an Information Technology student with a keen interest in programming, web development, and problem-solving.I’m passionate about exploring emerging technologies, strengthening my coding skills, and developing innovative ideas that can make a real-world impact. My goal is to become a skilled software engineer and contribute to impactful software solutions.</p>
+            </div>
+
+            <aside class="profile-card">
+              <div class="avatar"><img src="me.png" alt="Hema Malinya"></div>
+              <div class="pname">Hema Malinya</div>
+              <div class="prole">B.Tech (IT) • 2023–2027</div>
+              <div style="display:flex;gap:8px;margin-top:8px">
+                <a class="socials" href="https://github.com/Tulasibikkina" target="_blank" title="GitHub" aria-label="GitHub">GitHub</a>
+                <a class="socials" href="https://www.linkedin.com/in/bikkina-hemamalinyatulasidurga-5aa397336/" target="_blank" title="LinkedIn" aria-label="LinkedIn">LinkedIn</a>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills" class="page" aria-labelledby="skills-title">
+        <div class="page-inner">
+          <div class="glass">
+            <h2 id="skills-title">Skills</h2>
+            <div style="height:12px"></div>
+
+            <div class="skills-grid">
+              <!-- Technical Skills -->
+              <div>
+                <h3>Technical Skills</h3>
+                <ul>
+                  <li>Programming: C, Python, Java</li>
+                  <li>Web Development: HTML, CSS</li>
+                  <li>Database: MySQL</li>
+                  <li>Tools: GitHub, VS Code</li>
+                </ul>
+              </div>
+
+              <!-- Soft Skills -->
+              <div>
+                <h3>Soft Skills</h3>
+                <ul>
+                  <li>Problem Solving</li>
+                  <li>Team Collaboration</li>
+                  <li>Communication</li>
+                  <li>Adaptability</li>
+                  <li>Time Management</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- EDUCATION -->
+      <section id="education" class="page" aria-labelledby="education-title">
+        <div class="page-inner">
+          <div class="glass">
+            <h2 id="education-title">Education</h2>
+            <div style="height:12px"></div>
+            <div class="list">
+              <div class="item">
+                <strong>B.Tech in Information Technology</strong><br>
+                Sasi Institute of Technology and Engineering (2023–2027)<br>
+                Pursuing undergraduate studies in Information Technology with a focus on software development, programming, and computer systems.
+              </div>
+              <div class="item">
+                <strong>Intermediate in MPC</strong><br>
+                Sri Chaitanya Junior College (2021–2023)<br>
+                Studied Mathematics, Physics, and Chemistry (MPC).
+              </div>
+              <div class="item">
+                <strong>Schooling</strong><br>
+                Sri Chaitanya Olympiad School (2020)<br>
+                Completed CBSE curriculum with emphasis on science and mathematics.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PERSONAL INFORMATION (separate page) -->
+<section id="personal-info" class="page" aria-labelledby="personal-info-title">
+  <div class="page-inner">
+    <div class="glass">
+      <h2 id="personal-info-title">Personal Information</h2>
+
+      <div class="card personal-card" style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+        <div>
+          <p><strong>Full name:</strong> Bikkina Hema Malinya Tulasi Durga</p>
+          <p><strong>Date of Birth:</strong>25 October 2005</p>
+          <p><strong>Location:</strong> Racherla, Andhra Pradesh, India</p>
+          <p><strong>Phone:</strong> +91 7093266314</p>
+          <p><strong>Father Name:</strong>Jaya Hanumanthu Rao</p>
+          <p><strong>Mother Name:</strong>Pushpa Vani</p>
+          <p><strong>Brother Name:</strong>Pavan Kishore</p>
+
+        </div>
+
+        <div>
+          <p><strong>Email:</strong> <a href="mailto:tulasi.bikkina@sasi.ac.in">tulasi.bikkina@sasi.ac.in</a></p>
+          <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/bikkina-hemamalinyatulasidurga-5aa397336/" target="_blank">linkedin.com/in/bikkina-hemamalinyatulasidurga</a></p>
+          <p><strong>GitHub:</strong> <a href="https://github.com/Tulasibikkina" target="_blank">github.com/Tulasibikkina</a></p>
+          <p><strong>CodeChef:</strong> <a href="https://www.codechef.com/users/tulasibikkina" target="_blank">tulasibikkina</a></p>
+          <p><strong>Sololearn:</strong> <a href="https://www.sololearn.com/en/profile/35121253" target="_blank" rel="noopener noreferrer">tulasi bikkina</a></p>
+
+        </div>
+      </div>
+
     </div>
-  </section>
-
-  <!-- Education -->
-  <section id="education">
-    <h2>Education</h2>
-
-    <div class="card">
-      <h3>B.Tech in Information Technology</h3>
-      <p>• Sasi Institute of Technology and Engineering</p>
-      <p>• Pursuing undergraduate studies in Information Technology with a focus on software development, programming, and computer systems.</p>
-      <p>• 2023 – 2027</p>
-    </div>
-
-    <div class="card">
-      <h3>Intermediate in MPC</h3>
-      <p>• Sri Chaitanya Junior College</p>
-      <p>• Studied Mathematics, Physics, and Chemistry(MPC)</p>
-      <p>• 2021 – 2023</p>
-    </div>
-
-    <div class="card">
-      <h3>Schooling</h3>
-      <p>• Sri Chaitanya Olympiad School</p>
-      <p>• Completed CBSE curriculum with emphasis on science and mathematics.</p>
-      <p>• 2020</p>
-    </div>
-  </section>
-
-  <!-- Achievements -->
-  <section id="achievements">
-    <h2>Achievements</h2>
-    <div class="card">
-      <ul>
-        <li>Won First Prize in Tech Sparks, organized by IEEE Computer Society, SITE (2025).</li>
-        <li>Successfully completed an online internship in Web Development at Skill Dzire.</li>
-        <li>Earned a certificate from CodeChef for solving problems with a 500+ difficulty rating.</li>
-        <li>Participated in a workshop on AI Skills and Tools conducted by Intellipaat.</li>
-        <li>Earned a Red Hat Training Certificate in Linux Fundamentals.</li>
-        <li>Successfully completed an online Python internship by Internforte.</li>
-        <li>Attended a Flutter Development Workshop.</li>
-        <li>Participated in an Elewayte Online Program on Introduction to Generative AI.</li>
-        <li>Participated in an AR & VR Workshop.</li>
-        <li>Completed Generative AI & Power BI Fundamentals Workshop.</li>
-        <li>Participated in an Elewayte Online Program on Introduction to Generative AI.</li>
-        <li>Served as Team Leader for two consecutive semesters.</li>
-        <li>Solved 500+ problems on CodeChef.</li>
-        <!-- add or remove achievements here -->
-      </ul>
-    </div>
-  </section>
-
-  <!-- Certificates -->
-  <section id="certificates">
-    <h2>Certificates</h2>
-    <div class="card">
-      <p>Click a certificate to open it (opens in a new tab):</p>
-      <ul class="cert-list">
-        <!-- Replace the hrefs below with your actual certificate URLs -->
-        <li><a href="500difficultyrate.png" target="_blank">500 Difficulty Rate</a>
-        <li><a href="SkillDzire.png" target="_blank">SkillDzire</a></li>
-        <li><a href="TechSparks.png" target="_blank">TechSparks</a></li>
-        <li><a href="Intellipaat.png" target="_blank">Intellipaat</a></li>
-        <li><a href="RedHat.png" target="_blank">Red Hat</a></li>
-        <li><a href="IntrnForte.png" target="_blank">Internforte</a></li>
-        <li><a href="IntrnForte-2.png" target="_blank">Internforte-2</a></li>
-        <li><a href="certificates/flutter-workshop.pdf" target="_blank">Flutter Development Workshop</a></li>
-        <li><a href="certificates/ar-vr-workshop.pdf" target="_blank">AR & VR Workshop</a></li>
-        <li><a href="Elewayte.png" target="_blank">Elewayte</a></li>
-    </ul>
   </div>
+</section>
 
-        <!-- add more certificates as needed -->
-      </ul>
-    </div>
-  </section>
+      <!-- ACHIEVEMENTS -->
+      <section id="achievements" class="page" aria-labelledby="achievements-title">
+        <div class="page-inner">
+          <div class="glass">
+            <h2 id="achievements-title">Achievements</h2>
+            <div style="height:12px"></div>
+            <ul style="color:var(--muted);line-height:1.7">
+              <li>Won First Prize in Tech Sparks, organized by IEEE Computer Society, SITE (2025).</li>
+              <li>Successfully completed an online internship in Web Development at Skill Dzire.</li>
+              <li>Earned a certificate from CodeChef for solving problems with a 500+ difficulty rating.</li>
+              <li>Participated in a workshop on AI Skills and Tools conducted by Intellipaat.</li>
+              <li>Earned a Red Hat Training Certificate in Linux Fundamentals.</li>
+              <li>Successfully completed an online Python internship by Internforte.</li>
+              <li>Attended a Flutter Development Workshop.</li>
+              <li>Participated in an Elewayte Online Program on Introduction to Generative AI.</li>
+              <li>Participated in an AR & VR Workshop.</li>
+              <li>Completed Generative AI & Power BI Fundamentals Workshop.</li>
+              <li>Participated in an Elewayte Online Program on Introduction to Generative AI.</li>
+              <li>Served as Team Leader for two consecutive semesters.</li>
+              <li>Solved 500+ problems on CodeChef.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
-  <!-- Contact -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <div class="card">
-      <p>Email: <a href="mailto:tulasi.bikkina@sasi.ac.in">tulasi.bikkina@sasi.ac.in</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/bikkina-hemamalinyatulasidurga-5aa397336/" target="_blank" rel="noopener noreferrer">View My LinkedIn</a></p>
-      <p>GitHub: <a href="https://github.com/Tulasibikkina" target="_blank" rel="noopener noreferrer">Check My GitHub</a></p>
-    </div>
-  </section>
+      <!-- HOBBIES -->
+      <section id="hobbies" class="page" aria-labelledby="hobbies-title">
+        <div class="page-inner">
+          <div class="glass">
+            <h2 id="hobbies-title">Hobbies</h2>
+            <div style="height:12px"></div>
+            <div class="list">
+              <div class="item">
+                <strong>Reading:</strong> story books, news.<br>
+                <strong>Coding Practice:</strong> practice coding on platforms like CodeChef and SoloLearn.<br>
+                <strong>Community Work:</strong> Participated in awareness drives like <em>Plastic Waves</em>.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-  <!-- Footer -->
-  <footer>
+      <!-- CERTIFICATES -->
+      <section id="certificates" class="page" aria-labelledby="certificates-title">
+        <div class="page-inner">
+          <div class="glass">
+            <h2 id="certificates-title">Certificates</h2>
+            <div style="height:12px"></div>
+            <div class="list">
+              <li><a href="500difficultyrate.png" class="link-clean" target="_blank">500 Difficulty Rate — CodeChef</a></li>
+              <li><a href="SkillDzire.png" class="link-clean" target="_blank">SkillDzire — Web Dev Internship</a></li>
+              <li><a href="TechSparks.png" class="link-clean" target="_blank">TechSparks — IEEE Event</a></li>
+              <li><a href="Intellipaat.png" class="link-clean" target="_blank">Intellipaat — AI Workshop</a></li>
+              <li><a href="IntrnForte.png" class="link-clean" target="_blank">IntrnForte - Python Internship</a></li>
+              <li><a href="IntrnForte-2.png" class="link-clean" target="_blank">IntrnForte</a></li>
+              <li><a href="Elewayte.png" class="link-clean" target="_blank">Elewayte</a></li>
+              <li><a href="RedHat.png" class="link-clean" target="_blank">Red Hat — Linux Fundamentals</a></li>
+              <li><a href="Brainovision.jpg" class="link-clean" target="_blank">Brainovision</a></li>
+              <li><a href="LearnQuest.png" class="link-clean" target="_blank">LearnQuest</a></li>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects" class="page" aria-labelledby="projects-title">
+        <div class="page-inner">
+          <div class="glass">
+            <h2 id="projects-title">Projects</h2>
+            <div style="height:12px"></div>
+
+            <div class="projects-grid">
+
+              <!-- Project 1: Plastic Waves -->
+              <div class="project">
+                <div class="thumb" style="background-image:url('plasticwaves.png'); background-size:cover; background-position:center;"></div>
+                <div class="body">
+                  <h4>Plastic Waves (Community Service Project)</h4>
+                  <p>A sustainability-driven initiative aimed at reducing plastic pollution through awareness, campaigns, and cleanup drives.</p>
+                  <p><strong>Focus:</strong> Environmental Awareness, Sustainability, Recycling</p>
+                  <!-- <p><a href="https://example.com/plasticwaves" target="_blank" class="link-clean">View Details</a></p> -->
+                </div>
+              </div>
+
+              <!-- Project 2: Portfolio Website -->
+              <div class="project">
+                <div class="thumb" style="background-image:url('portfolio.png'); background-size:cover; background-position:center;"></div>
+                <div class="body">
+                  <h4>Portfolio Website</h4>
+                  <p>A responsive and interactive portfolio website for athletes to showcase match stats, achievements, and profiles.</p>
+                  <p><strong>Tech:</strong> HTML, CSS, JavaScript</p>
+                  <p><a href="http://127.0.0.1:5500/Portfolio/index.html#about" target="_blank" class="link-clean">Live Demo</a></p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="page" aria-labelledby="contact-title">
+        <div class="page-inner">
+          <div class="glass">
+            <h2 id="contact-title">Contact</h2>
+            <div class="card">
+              <p><strong>Email:</strong> <a href="mailto:tulasi.bikkina@sasi.ac.in">tulasi.bikkina@sasi.ac.in</a></p>
+              <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/bikkina-hemamalinyatulasidurga-5aa397336/" target="_blank" rel="noopener noreferrer">linkedin.com/in/bikkina-hemamalinyatulasidurga</a></p>
+              <p><strong>GitHub:</strong> <a href="https://github.com/Tulasibikkina" target="_blank" rel="noopener noreferrer">github.com/Tulasibikkina</a></p>
+              <p><strong>CodeChef:</strong> <a href="https://www.codechef.com/users/tulasibikkina" target="_blank" rel="noopener noreferrer">tulasibikkina</a></p>
+              <p><strong>Sololearn:</strong> <a href="https://www.sololearn.com/en/profile/35121253" target="_blank" rel="noopener noreferrer">tulasi bikkina</a></p>
+
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+   <footer>
     <p>© 2025 Hema Malinya | Portfolio Website</p>
   </footer>
 
-  <script src="script.js"></script>
+  </div>
+
+<script>
+  // Single-file SPA navigation
+  (function(){
+    const links = Array.from(document.querySelectorAll('.nav-link'));
+    const pages = Array.from(document.querySelectorAll('.page'));
+
+    function activate(id){
+      pages.forEach(p => p.classList.toggle('active', p.id === id));
+      links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === ('#' + id)));
+      history.replaceState(null,'', '#' + id);
+      // focus heading for accessibility
+      const first = document.querySelector('#' + id + ' h2, #' + id + ' h1');
+      if(first) first.focus({preventScroll:true});
+    }
+
+    links.forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href') || '';
+        if(!href.startsWith('#')) return;
+        e.preventDefault();
+        const id = href.slice(1);
+        activate(id);
+      });
+    });
+
+    // initial
+    const initial = location.hash ? location.hash.slice(1) : 'about';
+    activate(document.getElementById(initial) ? initial : 'about');
+
+    // keyboard left/right navigation
+    document.addEventListener('keydown', (e) => {
+      if(e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      const idx = pages.findIndex(p => p.classList.contains('active'));
+      if(idx === -1) return;
+      const next = e.key === 'ArrowRight' ? (idx+1)%pages.length : (idx-1+pages.length)%pages.length;
+      activate(pages[next].id);
+    });
+  })();
+</script>
 </body>
+
 </html>
